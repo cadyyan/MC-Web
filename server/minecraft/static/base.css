@@ -1,0 +1,202 @@
+html, body
+{
+	height: 100%;
+	margin: 0px;
+	padding: 0px;
+}
+
+div#header
+{
+	border: none !important;
+	height: 100px;
+}
+
+div#header div#header-wrapper
+{
+	margin: 0px auto;
+	padding-top: 8px;
+	width: 331px;
+}
+
+nav
+{
+	border-left: none !important;
+	border-right: none !important;
+	height: 24px;
+	padding: 0px 1em;
+}
+
+nav ul
+{
+	float: left;
+	height: 24px;
+	list-style: none;
+	margin: 0px;
+	padding: 0px;
+}
+
+nav ul li
+{
+	border-right: 2px solid gray;
+	float: left;
+	height: 22px;
+	margin-right: 0.5em;
+	padding-top: 2px;
+	padding-right: 0.5em;
+}
+
+nav ul li a
+{
+	text-decoration: none;
+}
+
+nav a#login
+{
+	float: right;
+	margin-top: 2px;
+	text-decoration: none;
+}
+
+nav span#user
+{
+	float: right;
+	margin-top: 2px;
+}
+
+nav span#user a
+{
+	text-decoration: none;
+}
+
+div#messages
+{
+	border: none;
+	padding-top: 1.5em;
+}
+
+div#messages div.message
+{
+	border: 2px solid;
+	margin: 1.5em;
+	min-height: 25px;
+	padding: 0.3em 0.5em;
+}
+
+div#messages div.message:first-child
+{
+	margin-top: 0px;
+}
+
+div#messages div.message:last-child
+{
+	margin-bottom: 0px;
+}
+
+div#message div.message.info
+{
+	background-color: #BDE5F8;
+	color: #4F8A10
+}
+
+div#messages div.message.success
+{
+	background-color: #DFF2BF;
+	color: #4F8A10;
+}
+
+div#messages div.message.warning
+{
+	background-color: #FEEFB3;
+	color: #9F6000;
+}
+
+div#messages div.message.error
+{
+	background-color: #D8000C;
+	color: #FFBABA;
+}
+
+div#content
+{
+	border-top: none;
+	padding: 1em;
+}
+
+div[type=header] div.ui-widget-header
+{
+	background-color: gray;
+	margin-bottom: 0.4em;
+	padding: 0.2em 0.4em;
+}
+
+.text
+{
+	background-color: #D3D3D3;
+	background-size: cover;
+	margin: 0 auto 1em;
+	padding: 6px;
+	width: 786px;
+}
+
+div.text p
+{
+	margin: 4px;
+}
+
+.ui-dialog fieldset
+{
+	border: none;
+	padding-left: 0px;
+	padding-right: 0px;
+}
+
+.ui-dialog fieldset label
+{
+	display: block;
+	margin-top: 8px;
+}
+
+.ui-dialog fieldset label:first-child
+{
+	margin-top: 0px;
+}
+
+.ui-dialog fieldset input[type=text], .ui-dialog fieldset input[type=password]
+{
+	font-weight: normal;
+	padding: 4px 5px;
+	width: 100%;
+}
+
+input.blank-field[type=text], input.blank-field[type=password], textarea.blank-field
+{
+	color: gray;
+}
+
+.ui-dialog fieldset textarea[type=text]
+{
+	font-weight: normal;
+	min-height: 80px;
+	resize: vertical;
+	width: 100%;
+}
+
+.ui-dialog span.form-error
+{
+	color: red;
+}
+
+.ui-dialog fieldset .form-error
+{
+	border: 1px solid red;
+}
+
+#login-dialog form fieldset input[name=next], #user-dialog form fieldset input[name=next]
+{
+	display: none;
+}
+
+#user-dialog #user-dialog-logout
+{
+	padding: 0.1em 0.3em;
+}

@@ -1,0 +1,63 @@
+{% extends 'base.html' %}
+
+{% block title%}
+	Avalon Minecraft Server
+{% endblock %}
+
+{% block stylesheets %}
+	<link rel="stylesheet" href="{{ STATIC_URL }}blog.css" />
+{% endblock %}
+
+{% block scripts %}
+	<script type="text/javascript" src="{{ STATIC_URL }}blog.js"></script>
+{% endblock %}
+
+{% block content %}
+	<div type="header-wrapper">
+		<h2>News</h2>
+	</div>
+	{% if request.user.is_authenticated %}
+	<div id="controls" class="text ui-widget-content ui-corner-all">
+		<button id="post">Post</button>
+	</div>
+	<div id="new-post" class="post editing text ui-widget ui-widget-content ui-corner-all ui-helper-hidden">
+    	<form action="post/add" method="post">
+    		{% csrf_token %}
+            <div class="title ui-widget-header ui-corner-top">
+                <input name="title" type="text" class="ui-widget-content ui-corner-all" />
+            </div>
+            <div class="content ui-widget-content">
+                <textarea name="content" type="text" class="ui-widget-content ui-corner-all"></textarea>
+            </div>
+        </form>
+        <div class="footer ui-widget-header ui-corner-bottom">
+            <button type="submit">Submit</button>
+            <button type="cancel">Cancel</button>
+        </div>
+    </div>
+    {% endif %}
+	<div id="posts">
+		{% for post in posts %}
+			<div class="post text ui-widget ui-widget-content ui-corner-all">
+				<form action="post/" method="post">
+					{% csrf_token %}
+					<div class="title ui-widget-header ui-corner-top">
+						<span><input type="text" name="id" value="{{ post.id }}" /><a href="/post/{{ post.id }}">{{ post.title }}</a></span>
+						{% if request.user.is_authenticated %}
+							<button type="remove">Remove</button>
+						{% endif %}
+					</div>
+					<div class="content ui-widget-content">
+						<p>{{ post.content }}</p>
+					</div>
+					<div class="footer ui-widget-header ui-corner-bottom">
+						<span>Posted on {{ post.posted_on }} by <a href="/user/{{ post.poster }}">{{ post.poster }}</a></span>
+						{% if request.user.is_authenticated %}
+							<button type="edit">Edit</button>
+						{% endif %}
+					</div>
+				</form>
+			</div>
+		{% endfor %}
+	</div>
+{% endblock %}

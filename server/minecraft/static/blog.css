@@ -1,0 +1,105 @@
+#content div[type=header-wrapper]
+{
+	margin: 0 auto 15px;
+}
+
+#content div[type=header-wrapper] h1, #content div[type=header-wrapper] h2, #content div[type=header-wrapper] h3, #content div[type=header-wrapper] h4
+{
+	display: inline;
+}
+
+.post .title
+{
+	padding: 3px 0.5em;
+}
+
+.post.editing .title
+{
+	padding: 3px 1.2em 3px 0.3em;
+}
+
+.post .title input
+{
+	padding: 3px 0.4em;
+	width: 100%;
+}
+
+.post .title input[name=id]
+{
+	display: none;
+}
+
+.post .title button
+{
+	float: right;
+	height: 22px;
+	width: 22px;
+}
+
+.post .content
+{
+	border-top: none;
+	border-bottom: none;
+	min-height: 200px;
+	padding: 0.5em;
+}
+
+.post.editing .content
+{
+	padding: 0.5em 1.4em 0.1em 0.3em
+}
+
+.post .content textarea
+{
+	min-height: 200px;
+	padding: 0.4em 0.5em;
+	resize: vertical;
+	width: 100%;
+}
+
+.post .footer
+{
+	min-height: 22px;
+	padding: 2px 0.5em 3px;
+}
+
+.post .footer span
+{
+	font-size: 0.8em;
+	font-weight: normal;
+}
+
+.post .footer .ui-button
+{
+	margin: 2px 0.5em 2px 0px;
+	padding: 2px 5px;
+}
+
+.post .footer .ui-button[type=edit]
+{
+	float: right;
+	height: 22px;
+	margin: 2px 0px 0px;
+	padding: 0px;
+	width: 22px;
+}
+
+.post .footer .ui-button .ui-button-text
+{
+	padding: 0px;
+}
+
+.post form
+{
+	margin: 0px;
+}
+
+.post form input[type=submit]
+{
+	display: none;
+}
+
+.post span.form-error
+{
+	color: red;
+}

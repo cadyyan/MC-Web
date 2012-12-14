@@ -1,0 +1,131 @@
+div#mods-wrapper
+{
+	padding: 0px;
+	width: 798px;
+}
+
+table#mods
+{
+	border-collapse: collapse;
+	margin: 0px auto;
+	width: 100%;
+}
+
+table#mods thead
+{
+	background-color: grey;
+	border: none;
+}
+
+table#mods tbody
+{
+	background-color: lightgrey;
+	border: none;
+}
+
+table#mods tbody tr:not(:last-child)
+{
+	border-bottom: 1px solid grey
+}
+
+table#mods thead tr th[col=id], table#mods tbody tr td[col=id],
+table#mods thead tr th[col=description], table#mods tbody tr td[col=description]
+{
+	display: none;
+}
+
+table#mods thead tr th, table#mods tbody tr td
+{
+	border-right: 1px solid grey;
+}
+
+table#mods thead tr th:last-child, table#mods tbody tr td:last-child
+{
+	border-right: none;
+}
+
+table#mods tbody tr td.ui-state-highlight
+{
+	background-color: yellow;
+}
+
+table#mods tbody tr td
+{
+	padding: 0.25em 1em;
+}
+
+table#mods tbody tr:last-child td
+{
+	padding: 0.25em 1em 0.5em;
+}
+
+table#mods tbody tr:not([checked=checked]) td[col=remove] button span
+{
+	display: none;
+}
+
+table#mods thead tr th[col=remove], table tbody tr td[col=remove]
+{
+	width: 22px;
+}
+
+table#mods thead tr th[col=edit], table#mods tbody tr td[col=edit]
+{
+	width: 50px;
+}
+
+table#mods tbody tr td[col=edit] button
+{
+	margin-left: 15px;
+}
+
+table#mods tbody tr td[col=remove] button, table#mods tbody tr td[col=edit] button
+{
+	height: 22px;
+	width: 22px;
+}
+
+div#controls
+{
+	background-color: lightgrey;
+	background-size: cover;
+	margin: 0 auto 1em;
+	padding: 8px;
+	width: 782px;
+}
+
+#modify-mod-dialog form fieldset input[name=action],
+#modify-mod-dialog form fieldset input[name=return],
+#modify-mod-dialog form fieldset #modify-mod-dialog-id,
+#remove-mod-dialog form fieldset #remove-mod-dialog-table tr td[col=id],
+#remove-mod-dialog form fieldset #remove-mod-dialog-submit
+{
+	display: none;
+}
+
+#remove-mod-dialog form fieldset #remove-mod-dialog-table
+{
+	border-collapse: collapse;
+	width: 100%;
+}
+
+#remove-mod-dialog form fieldset #remove-mod-dialog-table tr td
+{
+	padding: 0.2em;
+}
+
+#remove-mod-dialog form fieldset #remove-mod-dialog-table tr td[col=remove] button
+{
+	height: 22px;
+	width: 22px;
+}
+
+#remove-mod-dialog form fieldset #remove-mod-dialog-table tr td[col=name]
+{
+	padding-left: 0.5em;
+}
+
+.ui-tooltip
+{
+	max-width: 200px;
+}

@@ -1,0 +1,111 @@
+{% extends 'base.html' %}
+
+{% block title%}
+	Mods
+{% endblock %}
+
+{% block stylesheets %}
+	<link rel="stylesheet" href="{{ STATIC_URL }}mods.css" />
+{% endblock %}
+
+{% block scripts %}
+	<script type="text/javascript" src="{{ STATIC_URL }}mods.js"></script>
+{% endblock %}
+
+{% block content %}
+	<div id="description" type="header" header="Description" class="text">
+		<p>
+			This is the collection of mods that the Avalon server will be using. The table has each mod, a link to the webpage for the mod, the current version that
+			has been tested and is installed on the server, as well as a donate button for the mod if there is one. The link for the configurations that the server
+			uses for the mods is located <a href="#" onclick="alert('TODO!');">here</a>. To make this all easier I recommend using
+			<a target="_blank" href="http://www.minecraftforum.net/topic/1000645-multimc-42-windows-linux-mac/">MultiMC</a>. MultiMC allows you to have different versions of Minecraft
+			each with their own installation of mods and configurations and save files.
+		</p>
+	</div>
+	<div id="mods-wrapper" class="text ui-widget-content ui-corner-all">
+		<table id="mods" class="ui-widget">
+			<thead class="ui-widget-header">
+				<tr>
+					<th col="id">Mod ID</th>
+					<th col="description">Description</th>
+					
+					{% if request.user.is_authenticated %}
+						<th col="remove"></th>
+					{% endif %}
+					
+					<th col="name">Mod Name</th>
+					<th col="version">Version</th>
+					<th col="donate">Donate</th>
+					
+					{% if request.user.is_authenticated %}
+						<th col="edit">Edit</th>
+					{% endif %}
+				</tr>
+			</thead>
+			<tbody class="ui-widget-content">
+				{% for mod in mods %}
+					<tr>
+						<td col="id">{{ mod.id }}</td>
+						<td col="description">{{ mod.description }}</td>
+						
+						{% if request.user.is_authenticated %}
+							<td col="remove"><button>Remove</button></td>
+						{% endif %}
+						
+						<td col="name"><a target="_blank" href="{{ mod.url }}">{{ mod.name }}</a></td>
+						<td col="version">{{ mod.version }}</td>
+						<td col="donate">{{ mod.donate_url }}</td>
+						
+						{% if request.user.is_authenticated %}
+							<td col="edit"><button>Edit</button></td>
+						{% endif %}
+					</tr>
+				{% endfor %}
+			</tbody>
+		</table>
+	</div>
+	
+	{% if request.user.is_authenticated %}
+	<div id="controls" class="text">
+		<button id="add-mod">Add Mod</button>
+		<button id="remove-mods">Remove</button>
+	</div>
+	{% endif %}
+	
+	<div id="content-footer" class="text">
+		Last updated: {{ last_update }}
+	</div>
+	<div id="modify-mod-dialog" title="Add Mod">
+		<form action="" method="post">
+			{% csrf_token %}
+			<fieldset>
+				<input name="action" value="" type="text" />
+				<input name="return" value="true" type="text" />
+				<input id="modify-mod-dialog-id" type="text" name="id" />
+				<label for="modify-mod-dialog-name" type="required">Mod Name</label>
+				<input id="modify-mod-dialog-name" type="text" name="name" />
+				<label for="modify-mod-dialog-version">Mod Version</label>
+				<input id="modify-mod-dialog-version" type="text" name="version" />
+				<label for="modify-mod-dialog-url">Web Site</label>
+				<input id="modify-mod-dialog-url" type="text" name="url" />
+				<label for="modify-mod-dialog-wiki">Wiki Page</label>
+				<input id="modify-mod-dialog-wiki" type="text" name="wiki" />
+				<label for="modify-mod-dialog-donate-url">Donation URL</label>
+				<input id="modify-mod-dialog-donate-url" type="text" name="donate-url" />
+				<label for="modify-mod-dialog-description">Mod Description</label>
+				<textarea id="modify-mod-dialog-description" type="text" name="description"></textarea>
+			</fieldset>
+		</form>
+	</div>
+	<div id="remove-mod-dialog" title="Remove Mods">
+		<form action="mods/remove" method="post">
+			{% csrf_token %}
+			<fieldset>
+				<span>Are you sure you want to remove these mods?</span>
+				<label for="remove-mod-dialog-table">Selected Mods</label>
+				<table id="remove-mod-dialog-table" class="ui-widget ui-widget-content">
+				</table>
+			</fieldset>
+		</form>
+	</div>
+{% endblock %}

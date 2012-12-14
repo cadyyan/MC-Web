@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>{% block title %}Avalon{% endblock %}</title>
+		
+		<link rel="Stylesheet" href="{{ STATIC_URL }}jquery-ui-themes/dark-hive/jquery-ui.css" />
+        <link rel="Stylesheet" href="{{ STATIC_URL }}base.css" />
+		
+		{% block stylesheets %}{% endblock %}
+		
+		<script type="text/javascript" src="{{ STATIC_URL }}jquery.js"></script>
+		<script type="text/javascript" src="{{ STATIC_URL }}jquery-ui.js"></script>
+        <script type="text/javascript" src="{{ STATIC_URL }}lib/js/jquery-outside-events.js"></script>
+        <script type="text/javascript" src="{{ STATIC_URL }}util.js"></script>
+        <script type="text/javascript" src="{{ STATIC_URL }}base.js"></script>
+		
+		{% block scripts %}{% endblock %}
+	</head>
+	<body>
+		<div id="header" class="ui-widget ui-widget-content">
+            <div id="header-wrapper">
+                <h1>Avalon Minecraft</h1>
+            </div>
+		</div>
+		<nav class="ui-widget-header">
+            <ul>
+                <li>
+                    <a href="/">Home</a>
+                </li>
+                <li>
+                    <a href="mods">Mod Listing</a>
+                </li>
+            </ul>
+        
+            {% if not user.is_authenticated %}
+                <a id="login" href="#login">Login</a>
+            {% else %}
+                <span id="user">Logged in as: <a href="#{{ user.username }}">{{ user.username }}</a></span>
+            {% endif %}
+		</nav>
+		<div id="messages" class="ui-widget ui-widget-content">
+			{% for message in messages %}
+				{% if message.tags %}
+					<div class="message {{ message.tags }} ui-corner-all">
+						<span>{{ message }}</span>
+					</div>
+				{% endif %}
+			{% endfor %}
+		</div>
+		<div id="content" class="ui-widget ui-widget-content">
+			{% block content %}{% endblock %}
+		</div>
+		
+		{% if not user.is_authenticated %}
+			<div id="login-dialog">
+				<form action="/login" method="post">
+					{% csrf_token %}
+					<fieldset>
+						<legend>Login</legend>
+						<input name="next" type="text" role="next" value="{{ request.path }}" />
+						<label for="login-dialog-username" type="required">Username</label>
+						<input id="login-dialog-username" name="username" type="text" />
+						<label for="login-dialog-password">Password</label>
+						<input id="login-dialog-password" name="password" type="password" />
+					</fieldset>
+				</form>
+			</div>
+		{% else %}
+			<div id="user-dialog">
+				<form action="/logout" method="post">
+					{% csrf_token %}
+					<fieldset>
+						<legend>Profile</legend>
+						<input name="next" type="text" role="next" value="{{ request.path_info }}" />
+						<input id="user-dialog-logout" value="Logout" type="submit" />
+					</fieldset>
+				</form>
+			</div>
+		{% endif %}
+		
+	</body>
+</html>
