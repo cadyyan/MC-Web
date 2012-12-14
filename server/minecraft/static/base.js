@@ -4,7 +4,7 @@ $(document).ready(function () {
     prepareLogin();
     
     $(window).resize(function () {
-        $('#content').css('min-height', $('body').height() - $('#header').outerHeight() - $('nav').outerHeight() - $().outerHeight() - 35);
+        $('#content').css('min-height', $('body').height() - $('#header').outerHeight() - $('nav').outerHeight() - $('#messages').outerHeight() - 35);
     }).resize();
 });
 
