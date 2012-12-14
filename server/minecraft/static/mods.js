@@ -44,7 +44,7 @@ $(document).ready(function () {
                 
                 var action = 'mods/' + ($('#modify-mod-dialog-id').val() == '' ? 'add' : 'edit');
                 var form = dialog.find('form');
-                form.attr('action', action);
+                form.attr('action', form.attr('action') + action);
                 
                 dialog.find('form').submit();
             },

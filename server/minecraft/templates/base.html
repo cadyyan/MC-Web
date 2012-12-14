@@ -25,10 +25,10 @@
 		<nav class="ui-widget-header">
             <ul>
                 <li>
-                    <a href="/">Home</a>
+                    <a href="{{ URL }}">Home</a>
                 </li>
                 <li>
-                    <a href="mods">Mod Listing</a>
+                    <a href="{{ URL }}mods">Mod Listing</a>
                 </li>
             </ul>
         
@@ -53,7 +53,7 @@
 		
 		{% if not user.is_authenticated %}
 			<div id="login-dialog">
-				<form action="/login" method="post">
+				<form action="{{ URL }}login" method="post">
 					{% csrf_token %}
 					<fieldset>
 						<legend>Login</legend>
@@ -67,7 +67,7 @@
 			</div>
 		{% else %}
 			<div id="user-dialog">
-				<form action="/logout" method="post">
+				<form action="{{ URL }}logout" method="post">
 					{% csrf_token %}
 					<fieldset>
 						<legend>Profile</legend>
@@ -77,6 +77,5 @@
 				</form>
 			</div>
 		{% endif %}
-		
 	</body>
 </html>

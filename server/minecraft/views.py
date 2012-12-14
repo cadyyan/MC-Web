@@ -106,7 +106,7 @@ class BlogView(ListView):
 		else:
 			pass
 	
-		return HttpResponseRedirect('/')
+		return HttpResponseRedirect(URL)
 
 class ModsView(ListView):
 	context_object_name = 'mods'
