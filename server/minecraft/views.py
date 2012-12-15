@@ -172,7 +172,7 @@ class ModsView(ListView):
 				
 				mod.save()
 				
-				return HttpResponse('Success') # TODO
+				return HttpResponseRedirect(URL + 'mods')
 		elif action == 'remove':
 			if len(request.POST) <= 1:
 				return HttpResponse('No IDs were given') # TODO
@@ -182,7 +182,7 @@ class ModsView(ListView):
 			
 			Mod.objects.filter(id__in = mods).delete()
 			
-			return HttpResponse('Success')
+			return HttpResponseRedirect(URL + 'mods')
 		else:
 			return HttpResponse('Method not defined') # TODO: return error code
 		
