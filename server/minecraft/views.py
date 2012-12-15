@@ -17,8 +17,7 @@ class LoginView(View):
 			action = path[path.rfind('/') + 1:]
 		else:
 			action = '/'
-			
-		print request.REQUEST
+		
 		if 'next' in request.REQUEST:
 			next = request.REQUEST['next']
 		else:
