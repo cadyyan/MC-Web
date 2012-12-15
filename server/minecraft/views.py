@@ -119,7 +119,11 @@ class ModsView(ListView):
 		return context
 	
 	def last_updated(self):
-		return Mod.objects.order_by('-last_updated')[0].last_updated
+		mods = Mod.objects.order_by('-last_updated')
+		if len(mods) == 0:
+			return 'Never'
+		else:
+			return mods[0].last_updated
 		
 	def post(self, request, *args, **kwargs):
 		path = request.path_info
