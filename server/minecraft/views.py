@@ -154,7 +154,7 @@ class ModsView(ListView):
 				
 				mod.save()
 				
-				return HttpResponse('Success') # TODO
+				return HttpResponseRedirect(BASE_URL + 'mods')
 			else:
 				if not id or id == '':
 					return HttpResponse('No ID was given') # TODO
