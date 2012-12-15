@@ -42,7 +42,7 @@ $(document).ready(function () {
                     return;
                 }
                 
-                var action = 'mods/' + ($('#modify-mod-dialog-id').val() == '' ? 'add' : 'edit');
+                var action = $('#modify-mod-dialog-id').val() == '' ? 'add' : 'edit';
                 var form = dialog.find('form');
                 form.attr('action', form.attr('action') + action);
                 
