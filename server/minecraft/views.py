@@ -5,6 +5,7 @@ from django.contrib.auth.models import User
 from django.http import HttpResponse, HttpResponseForbidden, HttpResponseRedirect
 from django.views.generic import ListView, View
 
+from server.settings import BASE_URL
 from minecraft.models import Mod, Post
 from minecraft.util.messages import *
 
