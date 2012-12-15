@@ -76,7 +76,7 @@
 		Last updated: {{ last_update }}
 	</div>
 	<div id="modify-mod-dialog" title="Add Mod">
-		<form action="{{ URL }}" method="post">
+		<form action="{{ BASE_URL }}" method="post">
 			{% csrf_token %}
 			<fieldset>
 				<input name="action" value="" type="text" />
@@ -98,7 +98,7 @@
 		</form>
 	</div>
 	<div id="remove-mod-dialog" title="Remove Mods">
-		<form action="{{ URL }}mods/remove" method="post">
+		<form action="{{ BASE_URL }}mods/remove" method="post">
 			{% csrf_token %}
 			<fieldset>
 				<span>Are you sure you want to remove these mods?</span>

@@ -1,6 +1,6 @@
 # Django settings for server project.
 
-URL = '/'
+BASE_URL = '/'
 
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG

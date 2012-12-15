@@ -105,7 +105,7 @@ class BlogView(ListView):
 		else:
 			pass
 	
-		return HttpResponseRedirect(URL)
+		return HttpResponseRedirect(BASE_URL)
 
 class ModsView(ListView):
 	context_object_name = 'mods'
@@ -172,7 +172,7 @@ class ModsView(ListView):
 				
 				mod.save()
 				
-				return HttpResponseRedirect(URL + 'mods')
+				return HttpResponseRedirect(BASE_URL + 'mods')
 		elif action == 'remove':
 			if len(request.POST) <= 1:
 				return HttpResponse('No IDs were given') # TODO
@@ -182,7 +182,7 @@ class ModsView(ListView):
 			
 			Mod.objects.filter(id__in = mods).delete()
 			
-			return HttpResponseRedirect(URL + 'mods')
+			return HttpResponseRedirect(BASE_URL + 'mods')
 		else:
 			return HttpResponse('Method not defined') # TODO: return error code
 		

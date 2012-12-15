@@ -21,7 +21,7 @@
 		<button id="post">Post</button>
 	</div>
 	<div id="new-post" class="post editing text ui-widget ui-widget-content ui-corner-all ui-helper-hidden">
-    	<form action="{{ URL }}post/add" method="post">
+    	<form action="{{ BASE_URL }}post/add" method="post">
     		{% csrf_token %}
             <div class="title ui-widget-header ui-corner-top">
                 <input name="title" type="text" class="ui-widget-content ui-corner-all" />
@@ -39,7 +39,7 @@
 	<div id="posts">
 		{% for post in posts %}
 			<div class="post text ui-widget ui-widget-content ui-corner-all">
-				<form action="{{ URL }}post/" method="post">
+				<form action="{{ BASE_URL }}post/" method="post">
 					{% csrf_token %}
 					<div class="title ui-widget-header ui-corner-top">
 						<span><input type="text" name="id" value="{{ post.id }}" /><a href="/post/{{ post.id }}">{{ post.title }}</a></span>
