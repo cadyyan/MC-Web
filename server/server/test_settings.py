@@ -2,7 +2,7 @@
 
 BASE_URL = '/minecraft/'
 
-DEBUG = False
+DEBUG = True
 TEMPLATE_DEBUG = DEBUG
 
 ADMINS = (
@@ -17,7 +17,7 @@ DATABASES = {
         'NAME': 'minecraft',                      # Or path to database file if using sqlite3.
         'USER': 'minecraft',                      # Not used with sqlite3.
         'PASSWORD': '610ck6y610ck',                  # Not used with sqlite3.
-        'HOST': '',                      # Set to empty string for localhost. Not used with sqlite3.
+        'HOST': 'davalon.dyndns.org',                      # Set to empty string for localhost. Not used with sqlite3.
         'PORT': '',                      # Set to empty string for default. Not used with sqlite3.
     }
 }
@@ -69,7 +69,7 @@ STATICFILES_DIRS = (
     # Put strings here, like '/home/html/static' or 'C:/www/django/static'.
     # Always use forward slashes, even on Windows.
     # Don't forget to use absolute paths, not relative paths.
-	'/var/lib/django/global_static/',
+    'C:\Users\James\Desktop\minecraft\mineweb\static',
 )
 
 # List of finder classes that know how to find static files in
@@ -109,7 +109,7 @@ TEMPLATE_DIRS = (
     # Put strings here, like '/home/html/django_templates' or 'C:/www/django/templates'.
     # Always use forward slashes, even on Windows.
     # Don't forget to use absolute paths, not relative paths.
-	'templates'
+    'templates'
 )
 
 TEMPLATE_CONTEXT_PROCESSORS = (
@@ -135,7 +135,7 @@ INSTALLED_APPS = (
     'django.contrib.admin',
     # Uncomment the next line to enable admin documentation:
     'django.contrib.admindocs',
-	'minecraft'
+    'minecraft'
 )
 
 # A sample logging configuration. The only tangible logging
